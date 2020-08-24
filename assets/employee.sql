@@ -17,7 +17,8 @@ CREATE TABLE department
     title VARCHAR(30) NOT NULL,
     salary DECIMAL
     department_id INTEGER    
-    PRIMARY KEY(id)    
+    PRIMARY KEY(id)  
+    FOREIGN KEY(department_id) REFERENCES(department.id)  
 
 );
 
@@ -28,6 +29,8 @@ CREATE TABLE department
    last_name VARCHAR(30)  NOT NULL
    role_id INTEGER
    manager_id INTEGER 
+   FOREIGN KEY(manager_id) REFERENCES(employee.id),
+   FOREIGN KEY(role_id) REFERENCES(roles.id)
     PRIMARY KEY(id)    
 
 );
