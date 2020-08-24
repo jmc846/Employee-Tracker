@@ -1,7 +1,7 @@
 // The below alerts Javascript what requirements it must take in to make the App run
 const mysql = require("mysql");
 const inquirer = require("inquirer");
-const table = require("console.table");
+const table = require("table");
 
 
 // This is creating a connection to our MySQL database
