@@ -1,15 +1,15 @@
 // The below alerts Javascript what requirements it must take in to make the App run
 const mysql = require("mysql");
 const inquirer = require("inquirer");
-const table = require("table");
+const table = require("console.table");
 
 
 // This is creating a connection to our MySQL database
 var connection = mysql.createConnection({
     host: "localhost",
-    port: 7708,
+    port: 8080,
     user: "root",
-    password: "Gilmore24!",
+    password: "root",
     database: "employee_db"
 });
 
