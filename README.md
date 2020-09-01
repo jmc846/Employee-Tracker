@@ -52,4 +52,5 @@ undefined
     
 ### video:
 ![Employee Tracker demo](https://media.giphy.com/media/RN96hmEFrCJEUbBnZC/giphy.gif)
+![Video of CLI Tables](https://media.giphy.com/media/ZZO9lWMZX1HSQVDGTj/giphy.gif)
 
