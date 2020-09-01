@@ -1,7 +1,7 @@
 // The below alerts Javascript what requirements it must take in to make the App run
 const mysql = require("mysql");
 const inquirer = require("inquirer");
-const table = require("console.table");
+const table = require("table");
 
 
 // This is creating a connection to our MySQL database
@@ -10,7 +10,7 @@ var connection = mysql.createConnection({
     port: 3306,
     user: "root",
     password: "67504@jc",
-    database: "employee_db"
+    database: "employeeTracker_DB"
 });
 
 // This starts the main display in the terminal
@@ -165,12 +165,12 @@ const addRole = () => {
             
             })
         }
-
-    // This establishes a connection to our terminal
-   connection.connect(function(err){
+ // This establishes a connection to our terminal
+connection.connect(function(err){
     if (err) throw err;
     console.log("connected as id " + connection.threadId);
-   
-});
+    // connection is complete, remainder of code can start.
+    start()
+  }); 
 // Callback to the start fucntion up top
-start()
+// start()

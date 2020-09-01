@@ -6,7 +6,7 @@ USE employeeTracker_DB
 CREATE TABLE department
 (
     id INTEGER NOT NULL AUTO_INCREMENT,
-    name VARCHAR(30) NOT NULL,
+    department_name VARCHAR(30) NOT NULL,
     PRIMARY KEY(id)    
 
 );
@@ -35,6 +35,8 @@ CREATE TABLE department
 
 );
 
+
+
 SELECT * FROM department;
-SELECT * FROM  role;
+SELECT * FROM role;
 SELECT * FROM employee;
