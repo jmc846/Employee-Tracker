@@ -39,8 +39,7 @@ Jonathan CObb
 
     
 ### test:
-[The deployed CMS](https://jmc846.github.io/Employee-Tracker/)
-
+The deployment via the CLI will serve as the test for this application. 
     
 ### email:
 jmc845@scarletmail.rutgers.edu
@@ -52,5 +51,5 @@ undefined
 [![Build Status](https://travis-ci.org/ali-irawan/xtra.svg?branch=master)](https://travis-ci.org/ali-irawan/xtra)
     
 ### video:
-tba
+![Employee Tracker demo](https://media.giphy.com/media/RN96hmEFrCJEUbBnZC/giphy.gif)
 

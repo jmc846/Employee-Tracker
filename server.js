@@ -1,7 +1,7 @@
 // The below alerts Javascript what requirements it must take in to make the App run
 const mysql = require("mysql");
 const inquirer = require("inquirer");
-const table = require("table");
+const table = require("console.table");
 
 
 // This is creating a connection to our MySQL database
@@ -24,9 +24,9 @@ const start = () => {
             "View all roles?",
             "View all employees",
             "Add a department",
-            "Add a role",
+            "Add a roles",
             "Add an employee",
-            "Update employee role",
+            "Update employee roles",
             "Exit"
         ]
     })
@@ -69,11 +69,11 @@ const viewDepartments = () => {
 
 // This function allows the user to view all roles
 const viewRoles = () => {
-    var query = `SELECT roles.id, roles.title, roles.salary, department.name 
+    var query = `SELECT role.id, role.title, role.salary, department.department_name 
     AS department
-    FROM roles
+    FROM role
     INNER JOIN department
-    ON roles.department_id = department.id`;
+    ON role.department_id = department.id`;
 
     connection.query(query, (err, res) => {
         if(err) throw err;
@@ -130,7 +130,7 @@ const addRole = () => {
       }
       ])  
           .then( answer =>  {
-            var query = "INSERT INTO roles (title, salary, department_id) VALUES ( ?, ?, ? )";
+            var query = "INSERT INTO role (title, salary, department_id) VALUES ( ?, ?, ? )";
             connection.query(query, [answer.title, answer.salary, answer.department], (err, res) => {
                 console.table(`Successfully added the: ${(answer.title)} role.`)
             })
