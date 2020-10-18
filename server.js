@@ -24,9 +24,9 @@ const start = () => {
             "View all roles?",
             "View all employees",
             "Add a department",
-            "Add a roles",
+            "Add a role",
             "Add an employee",
-            "Update employee roles",
+            "Update employee role",
             "Exit"
         ]
     })
@@ -48,7 +48,7 @@ const start = () => {
             case "Add an employee":
                 return addEmployee();
             case "Update employee role":
-                return updateEmployee();
+                return updateEmployeeRoles();
             case "Exit":
                return connection.end();                        
         }
@@ -164,7 +164,52 @@ const addRole = () => {
                 })
             
             })
+           
+
+
         }
+
+        const updateEmployeeRoles = () => {
+            var query = `SELECT * FROM employee`
+            var query2 = `SELECT * from role`
+            connection.query (query, (err, res) =>{
+                if(err)throw error ;
+                console.log(res)
+                let empArr = [];
+                res.map(emp => empArr.push(emp.first_name + ' ' + emp.last_name))
+             connection.query(query2,(err2, res2) =>{
+                if(err2)throw error ;
+                let roleArr = [];
+                res2.map(role => roleArr.push(role.title))
+                inquirer.prompt([
+                {
+                name: "empName",
+                type: "list",
+                message: "Who is the employee you'd like to update?",
+                choices: empArr
+                },
+                {
+                name: "roleName",
+                type: "list",
+                message: "What role would you like to change?",
+                choices: roleArr
+                }
+                ]).then( answer =>  {
+                    console.log(answer)
+                    var bothNames = answer.empName.split(" ")
+                    var firstN = bothNames[0]
+                    var lastN = bothNames[1]
+                    console.log(firstN, lastN)
+                    var query3 = "UPDATE employee SET role_id = (role) WHERE first_name = (first_name) AND last_name = (last_name) VALUES ( ?, ?, ? )";
+                    connection.query(query3, [answer.roleName, firstN, lastN], (err, res) => {
+                        console.table(res)
+                        console.log(`Successfully updated the: employee.`)
+                    })
+                })
+            })
+        })
+        }
+
  // This establishes a connection to our terminal
 connection.connect(function(err){
     if (err) throw err;
